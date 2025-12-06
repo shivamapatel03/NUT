@@ -41,8 +41,12 @@
             display: flex; justify-content: space-between; align-items: center;
             position: relative;
         }
-        .logo { font-weight: 800; font-size: 1.4rem; color: var(--dark); letter-spacing: -0.5px; text-transform: uppercase; cursor: pointer; }
-        .logo .dot { color: var(--primary); font-size: 2.5rem; line-height: 0; }
+        .logo { 
+            font-weight: 800; font-size: 1.4rem; color: var(--dark); 
+            letter-spacing: -0.5px; text-transform: uppercase; cursor: pointer;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .logo img { display: block; }
         
         .nav-links { display: flex; list-style: none; gap: 30px; }
         .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; font-size: 0.95rem; position: relative; cursor: pointer; }
@@ -55,12 +59,25 @@
 
         .nav-icons { display: flex; gap: 20px; align-items: center; }
         
+        /* Language Selector */
         select#languageSelector {
             padding: 5px 10px; border: 2px solid #eee; border-radius: 6px;
             font-weight: 600; color: var(--dark); cursor: pointer; outline: none;
         }
         select#languageSelector:focus { border-color: var(--primary); }
 
+        /* WhatsApp Nav Icon */
+        .nav-wa-btn {
+            color: #25D366; /* WhatsApp Green */
+            font-size: 1.6rem;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .nav-wa-btn:hover { transform: scale(1.1); color: #128C7E; }
+
+        /* Cart Icon */
         .cart-btn { position: relative; cursor: pointer; font-size: 1.3rem; transition: 0.2s; }
         .cart-btn:hover { color: var(--primary); transform: scale(1.1); }
         #cart-badge {
@@ -124,11 +141,22 @@
         .slide {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-size: cover; background-position: center;
-            opacity: 0; transition: opacity 1s ease, transform 6s linear;
+            opacity: 0; transition: opacity 1s ease, transform 9s linear; /* Slower transform for 9s */
             transform: scale(1);
+            overflow: hidden; /* Ensures video doesn't spill out */
         }
-        .slide.active { opacity: 1; transform: scale(1.15); } 
-        .slide-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); }
+        .slide.active { opacity: 1; transform: scale(1.1); } 
+        
+        /* NEW: Styles for the video inside slide */
+        .slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures video fills the box without stretching */
+            position: absolute;
+            top: 0; left: 0;
+        }
+
+        .slide-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); z-index: 1; }
         .slide-caption { position: absolute; bottom: 30px; left: 30px; color: white; z-index: 2; }
         .slide-caption h3 { font-size: 1.5rem; margin-bottom: 5px; }
         .slide-caption p { font-size: 0.9rem; opacity: 0.9; }
@@ -154,7 +182,9 @@
             background: white; border-radius: 16px; overflow: hidden; 
             border: 1px solid #f0f0f0; transition: 0.3s; position: relative;
         }
-        .card-img { height: 420px; width: 80%; object-fit: cover; background: #eee; }
+        .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
+        
+        .card-img { height: 220px; width: 100%; object-fit: cover; background: #eee; }
         
         .card-info { padding: 20px; }
         .cat-tag { font-size: 0.75rem; text-transform: uppercase; color: var(--gray); letter-spacing: 1px; font-weight: 600; display: block; margin-bottom: 5px; }
@@ -163,6 +193,7 @@
         .price { color: var(--primary); font-weight: 700; font-size: 1.1rem; }
         .add-btn { width: 40px; height: 40px; background: #f4f4f4; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; }
         .add-btn:hover { background: var(--primary); color: white; }
+
         /* PARTNER SECTION */
         .partner-section { background: linear-gradient(135deg, #fff 0%, #fffbe6 100%); border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
         .partner-container { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px; }
@@ -197,18 +228,62 @@
         .footer-links a { color: #888; text-decoration: none; transition: 0.3s; }
         .footer-links a:hover { color: var(--primary); }
 
-        /* CART & TOAST */
-        .cart-sidebar { position: fixed; top: 0; right: -400px; width: 350px; height: 100vh; background: white; z-index: 2000; transition: 0.4s; padding: 25px; box-shadow: -10px 0 30px rgba(0,0,0,0.2); display: flex; flex-direction: column; }
+        /* CART SIDEBAR (Fixed Width for Mobile) */
+        .cart-sidebar { 
+            position: fixed; top: 0; right: -400px; 
+            width: 100%; max-width: 350px; /* FIXED: Responsive Width */
+            height: 100vh; background: white; z-index: 2000; 
+            transition: 0.4s; padding: 25px; box-shadow: -10px 0 30px rgba(0,0,0,0.2); 
+            display: flex; flex-direction: column; 
+        }
         .cart-sidebar.active { right: 0; }
         .cart-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1500; display: none; backdrop-filter: blur(3px); }
         .cart-overlay.active { display: block; }
         .cart-body { flex: 1; overflow-y: auto; }
+        .cart-footer input { width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 8px; }
+        .full-width { width: 100%; justify-content: center; }
         #toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--dark); color: white; padding: 12px 30px; border-radius: 30px; opacity: 0; transition: 0.3s; z-index: 3000; }
         #toast.show { opacity: 1; bottom: 50px; }
 
         /* ANIMATIONS */
         .reveal { opacity: 0; transform: translateY(30px); transition: 1s ease; }
         .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* MARQUEE SECTION */
+        .marquee-section {
+            background: var(--light);
+            padding: 40px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 1px solid #eee;
+        }
+        .marquee-track {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+        .marquee-track img {
+            height: 100px;
+            width: auto;
+            margin: 0 40px;
+            opacity: 0.7;
+            filter: grayscale(100%);
+            transition: 0.3s;
+            vertical-align: middle;
+            border-radius: 8px;
+            background: white;
+            padding: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .marquee-track img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
 
         /* PAGE VISIBILITY CLASSES */
         .page-section { display: none; animation: fadeIn 0.5s ease; }
@@ -224,38 +299,5 @@
             .nav-links.active { display: flex; }
             .hamburger { display: block; }
             .split-layout { flex-direction: column; }
-            .cart-sidebar { width: 100%; }
-        }
-
-          .partner-section { background: linear-gradient(135deg, #fff 0%, #fffbe6 100%); border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
-        .partner-container { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 30px; }
-        .partner-logo-large { max-width: 280px; width: 100%; margin-bottom: 10px; }
-        
-        /* Black Frame for A4 Certificate */
-        .cert-frame-black {
-            background-color: #1a1a1a; /* Black background */
-            padding: 20px;             /* Padding creates the frame effect */
-            border-radius: 4px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3); /* Deep shadow for realism */
-            max-width: 100%;
-            width: fit-content;
-            margin: 0 auto;
-            border: 1px solid #333;
-        }
-
-        /* A4 Image Style (Aspect Ratio ~1:1.41) */
-        .cert-image-a4 {
-            display: block;
-            width: 100%;
-            max-width: 500px;          /* Limit width on desktop */
-            aspect-ratio: 1 / 1.414;   /* Forces A4 Portrait aspect ratio */
-            object-fit: cover;         /* Ensures image fills the area */
-            background-color: white;   /* Fallback if image fails */
-            border: 1px solid #ddd;    /* Thin border around the paper itself */
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .cert-frame-black { padding: 10px; }
-            .cert-image-a4 { max-width: 100%; }
+            /* Cart fix ensures max-width applies */
         }

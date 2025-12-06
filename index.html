@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Ujaval Trading | Construction Materials</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  </head>
+<body>
+
+      <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item"><i class="fas fa-bullhorn"></i> TODAY'S RATES:</div>
+            <div class="ticker-item">UltraTech Cement: ₹380/bag</div>
+            <div class="ticker-item">Ambuja Cement: ₹375/bag</div>
+            <div class="ticker-item">River Sand: ₹1200/ton</div>
+            <div class="ticker-item">Tata TMT Steel: ₹65/kg</div>
+            <div class="ticker-item">Red Bricks: ₹9/pc</div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+       <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="switchPage('home')">
+                <img src="images/logo.png" height="60px" width="60px" alt="Logo"> 
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#" id="link-home" class="active" onclick="switchPage('home'); toggleMobileMenu()">Home</a></li>
+                <li><a href="#" id="link-products" onclick="switchPage('products'); toggleMobileMenu()">Collection</a></li>
+                <li><a href="#" onclick="switchPage('home'); scrollToSection('partner-section'); toggleMobileMenu()">Authorized Partner</a></li>
+                <li><a href="#" onclick="switchPage('home'); scrollToSection('ai-tool'); toggleMobileMenu()">AI Tool</a></li>
+            </ul>
+            <div class="nav-icons">
+                <select id="languageSelector" onchange="changeLanguage(this.value)">
+                    <option value="en">EN</option>
+                    <option value="hi">हिंदी</option>
+                    <option value="gu">ગુજરાતી</option>
+                </select>
+
+                <div class="cart-btn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span id="cart-badge">0</span>
+                </div>
+                
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================ -->
+    <!-- HOME PAGE VIEW -->
+    <!-- ============================================ -->
+    <div id="page-home" class="page-section active-page">
+        
+        <!-- HERO SECTION -->
+        <section id="hero">
+            <div class="hero-text reveal">
+                <span class="pill-tag"><i class="fas fa-certificate"></i> UltraTech Authorized Partner</span>
+                <h1 data-i18n="hero_title">Build Your Dream <br> With <span class="highlight">Confidence</span></h1>
+                <p data-i18n="hero_sub">Premium Indian cement and materials delivered to your site. Experience the new standard in construction trading.</p>
+                <div class="hero-cta">
+                    <button class="btn-primary" onclick="switchPage('products')">
+                        <span data-i18n="btn_buy">Explore Products</span> <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn-outlined" onclick="scrollToSection('ai-tool')">
+                        <i class="fas fa-calculator"></i> <span data-i18n="btn_ai">AI Estimate</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="hero-visual reveal">
+                <div class="hero-slider">
+                    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80');">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-caption">
+                            <h3 data-i18n="slide_site">On-Site Delivery</h3>
+                            <p>Fast delivery across Gujarat</p>
+                        </div>
+                    </div>
+                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1581094794329-cd1361ddee2d?w=800&q=80');">
+                        <div class="slide-overlay"></div>
+                        <div class="slide-caption">
+                            <h3 data-i18n="slide_stock">Fresh Cement Stock</h3>
+                            <p>UltraTech, Ambuja & More</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TOP 5 PRODUCTS SECTION -->
+        <section class="section-pad">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>Featured Products</h2>
+                    <p>Our best-selling materials for your construction needs</p>
+                    <div class="divider"></div>
+                </div>
+                <div class="product-grid" id="featuredGrid">
+                    <!-- Top 5 products injected here -->
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <button class="btn-outlined" onclick="switchPage('products')">View All Products</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="partner-section" class="section-pad partner-section">
+            <div class="container partner-container reveal">
+                <div>
+                    <h2>Authorized Partner</h2>
+                    <div class="divider" style="margin: 10px auto;"></div>
+                </div>
+                
+                <!-- Company Logo (UltraTech) -->
+                <!-- Replace 'src' with your local file like './images/ultratech-logo.png' if needed -->
+                <img src="./images/logo.png" alt="UltraTech Logo" class="partner-logo-large">
+
+                <!-- Certificate Frame (Black Page + A4 Image) -->
+                <div class="cert-frame-black">
+                    <!-- This image mimics an A4 Certificate. Replace src="" with your real certificate image -->
+                    <img src="images/certificate.png" alt="Authorized Partner Certificate" class="cert-image-a4">
+                </div>
+                
+                <p style="max-width: 600px; margin-top: 20px; color: #555;">We are proud to hold the official dealership certificate from UltraTech Cement & Building Products, ensuring 100% authentic materials for your construction.</p>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section id="features" class="section-pad" style="background: #fafafa;">
+<!-- ... existing code ... -->
+
+        <!-- FEATURES -->
+        <section id="features" class="section-pad" style="background: #fafafa;">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 data-i18n="feat_title">Why Choose Us</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="features-grid reveal">
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-truck-fast"></i></div><h3 data-i18n="feat_fast">Super Fast Delivery</h3><p data-i18n="feat_fast_desc">On-time site delivery.</p></div>
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-certificate"></i></div><h3 data-i18n="feat_quality">Authorized Partner</h3><p data-i18n="feat_quality_desc">100% genuine materials.</p></div>
+                    <div class="feature-card"><div class="feature-icon"><i class="fas fa-tag"></i></div><h3 data-i18n="feat_price">Best Market Price</h3><p data-i18n="feat_price_desc">Lowest wholesale rates.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="section-pad">
+            <div class="container">
+                <div class="section-header reveal"><h2 data-i18n="testi_title">Client Stories</h2><div class="divider"></div></div>
+                <div class="testimonials-grid reveal">
+                    <div class="testi-card"><p class="testi-text">"Used the UltraTech Weather Pro system for my new bungalow. Excellent guidance."</p><h4>Rahul Patel</h4><span>Contractor</span></div>
+                    <div class="testi-card"><p class="testi-text">"Found the exact epoxy grout I needed. Huge Tilefixo range."</p><h4>Amit Shah</h4><span>Engineer</span></div>
+                    <div class="testi-card"><p class="testi-text">"Best rates for Steel and Sand. Professional service."</p><h4>Priya Desai</h4><span>Architect</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI TOOL -->
+        <section id="ai-tool" class="section-pad dark-bg">
+            <div class="container split-layout">
+                <div class="ai-content reveal">
+                    <h2 data-i18n="ai_title">Smart AI Estimation</h2>
+                    <p data-i18n="ai_sub" style="opacity:0.8; margin-bottom: 20px;">Don't guess. Know exactly how much material your project needs.</p>
+                    <div class="glass-form">
+                        <div class="input-group"><label data-i18n="lbl_plot">Plot Area (Sq. Ft)</label><input type="number" id="plotSize" placeholder="e.g. 1200"></div>
+                        <div class="input-group"><label data-i18n="lbl_floors">Number of Floors</label><input type="number" id="floors" value="1"></div>
+                        <button class="btn-primary full-width" onclick="calculateMaterials()" data-i18n="btn_calc">Calculate Now</button>
+                    </div>
+                </div>
+                <div class="ai-result-box reveal" id="aiResults">
+                    <div class="empty-state" style="text-align: center;"><i class="fas fa-robot" style="font-size: 3rem; color: #ddd; margin-bottom: 15px;"></i><p data-i18n="msg_enter_details" style="color:#666;">Enter details to see estimates</p></div>
+                    <div class="results-content" style="display:none; width: 100%;">
+                        <h3 data-i18n="res_title" style="margin-bottom: 20px; text-align: center;">Your Estimate</h3>
+                        <div class="res-row"><span data-i18n="res_cement">Cement</span> <strong id="res-cement">0</strong></div>
+                        <div class="res-row"><span data-i18n="res_sand">Sand</span> <strong id="res-sand">0</strong></div>
+                        <div class="res-row"><span data-i18n="res_steel">Steel</span> <strong id="res-steel">0</strong></div>
+                        <div class="res-row total-row"><span data-i18n="res_cost">Est. Cost</span> <strong id="res-cost">₹0</strong></div>
+                        <button class="btn-white" onclick="addEstimatesToCart()" data-i18n="btn_add_cart">Add All to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- PRODUCTS PAGE VIEW -->
+    <!-- ============================================ -->
+    <div id="page-products" class="page-section">
+        <section class="section-pad">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 data-i18n="prod_title">Complete Material Catalog</h2>
+                    <p>Featuring Complete UltraTech Solutions: Cement, Waterproofing, Repairs & Tiling</p>
+                    <div class="divider"></div>
+                </div>
+
+                <!-- Search -->
+                <div class="search-wrapper reveal">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" data-i18n-placeholder="search_ph" placeholder="Search products..." onkeyup="filterProducts()">
+                    </div>
+                    <div class="filter-group">
+                        <button class="filter-btn active" onclick="filterCategory('all')" data-i18n="filter_all">All</button>
+                        <button class="filter-btn" onclick="filterCategory('Cement')">Cement</button>
+                        <button class="filter-btn" onclick="filterCategory('Waterproofing')">Waterproofing</button>
+                        <button class="filter-btn" onclick="filterCategory('Repair')">Repair Systems</button>
+                        <button class="filter-btn" onclick="filterCategory('Tile Adhesives')">Tile Adhesives</button>
+                        <button class="filter-btn" onclick="filterCategory('Cleaner')">Tile Cleaner</button>
+                        <button class="filter-btn" onclick="filterCategory('Steel')">Steel</button>
+                    </div>
+                </div>
+
+                <div class="product-grid" id="productsGrid">
+                    <!-- JS will inject all products here -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">NEW UJAVAL TRADING</div>
+        <p data-i18n="footer_tag">Building India's Future with Quality.</p>
+        <div class="footer-links">
+            <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact Support</a>
+        </div>
+        <p>Nadiad-Petlad Road , padgol , Anand , Gujarat • +91 75738 72932</p>
+        <div class="copyright">© 2025 New Ujaval Trading. All rights reserved.</div>
+    </footer>
+
+    <!-- CART & TOAST -->
+    <div id="cartOverlay" class="cart-overlay" onclick="toggleCart()"></div>
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header"><h3 data-i18n="cart_title">Your Bag</h3><span class="close-cart" onclick="toggleCart()">&times;</span></div>
+        <div id="cartItems" class="cart-body"></div>
+        <div class="cart-footer">
+            <div class="res-row" style="border:none; margin-bottom: 10px;"><span data-i18n="total">Total</span><span id="cartTotal" style="font-weight: 700; color: var(--primary);">₹0</span></div>
+            
+            <input type="text" id="cName" placeholder="Your Name">
+            <input type="tel" id="cPhone" placeholder="Phone Number">
+            <input type="text" id="cLoc" list="gujarat-cities" placeholder="Site Location / City (Select or Type)">
+
+            <button class="btn-primary full-width" onclick="checkoutWhatsApp()"><i class="fab fa-whatsapp"></i> <span data-i18n="btn_whatsapp">Order on WhatsApp</span></button>
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+</body>
+</html>

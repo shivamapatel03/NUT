@@ -184,7 +184,7 @@
         }
         .product-card:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
         
-        .card-img { height: 220px; width: 100%; object-fit: cover; background: #eee; }
+        .card-img { height: 400px; width: 100%; object-fit: cover; background: #eee; }
         
         .card-info { padding: 20px; }
         .cat-tag { font-size: 0.75rem; text-transform: uppercase; color: var(--gray); letter-spacing: 1px; font-weight: 600; display: block; margin-bottom: 5px; }

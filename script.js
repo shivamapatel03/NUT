@@ -40,11 +40,11 @@ const OWNER_PHONE = "918799429307";
         };
 
         const products = [
-            { id: 101, name: "UltraTech OPC Cement", cat: "Cement", price: 380, unit: "Bag", img: "./images/cement/opc.avif" },
-            { id: 102, name: "UltraTech Weather Plus", cat: "Cement", price: 410, unit: "Bag", img: "./images/cement/weatherplus.png" },
-            { id: 103, name: "UltraTech PPC", cat: "Cement", price: 410, unit: "Bag", img: "./images/cement/ppc.webp" },
-            { id: 104, name: "UltraTech SUPER", cat: "Cement", price: 410, unit: "Bag", img: "./images/cement/super.webp" },
-            { id: 201, name: "Seal & Dry ILW+", cat: "Waterproofing", price: 250, unit: "Litre", img: "images/waterproofing/Seal_&_Dry_ILW+.avif" },
+            { id: 101, name: "UltraTech OPC Cement", cat: "Cement", unit: "Bag", img: "./images/cement/opc.avif" },
+            { id: 102, name: "UltraTech Weather Plus", cat: "Cement", unit: "Bag", img: "./images/cement/weatherplus.png" },
+            { id: 103, name: "UltraTech PPC", cat: "Cement", unit: "Bag", img: "./images/cement/ppc.webp" },
+            { id: 104, name: "UltraTech SUPER", cat: "Cement", unit: "Bag", img: "./images/cement/super.webp" },
+            { id: 201, name: "Seal & Dry ILW+", cat: "Waterproofing",unit: "Litre", img: "images/waterproofing/Seal_&_Dry_ILW+.avif" },
             { id: 202, name: "Weather Pro WP+200", cat: "Waterproofing", unit: "200ml, 1L, 2L, 5L, 10L, 50L", img: "images/waterproofing/wp200.jpeg" },
             { id: 203, name: "Weather Pro Flex", cat: "Waterproofing", unit: "3kg, 15kg, 30kg", img: "images/waterproofing/proflex.png" },
             { id: 204, name: "Weather Pro HI-FLEX", cat: "Waterproofing", unit: "12kg, 24kg", img: "images/waterproofing/hiflex.webp" },
@@ -66,7 +66,9 @@ const OWNER_PHONE = "918799429307";
             { id: 415, name: "Build Champ Cleaner", cat: "Cleaner", unit: "Litre", img: "images/tile/champ.webp" },
             { id: 501, name: "READPLAST RP", cat: "Plaster", unit: "40Kg", img: "./images/plaster/readplast.png" },
             { id: 502, name: "READPLAST2DAY", cat: "Plaster", unit: "40Kg", img: "./images/plaster/repair2day.webp" },
-            { id: 502, name: "River Sand", cat: "Sand", price: 1200, unit: "Ton", img: "images/river_sand.jpg" }
+            { id: 502, name: "Kapachi", cat: "Greet", unit: "1 Tractor", img: "images/kapachi.png" },
+            { id: 601, name: "Small Dust Greet", cat: "Greet", unit: "1 Tractor", img: "images/Small.png" }
+            
         ];
 
         let cart = [];
